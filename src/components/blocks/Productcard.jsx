@@ -1,4 +1,4 @@
-import ProductCount from "./ProductCount"
+import ProductCount from "../ui/ProductCount"
 
 function ProductCard({title,opis,price}) {
 

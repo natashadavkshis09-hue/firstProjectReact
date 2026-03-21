@@ -1,6 +1,8 @@
 import MyComponent from "../components/MyComponent"
 import SampleBlock from "../components/SampleBlock"
-import Counter from "../components/Counter"
+import Counter from "../components/ui/Counter"
+import MyList from "../components/Mylist"
+
 
 function Education() {
 
@@ -13,6 +15,7 @@ function Education() {
         description={"Описание"}
         />
         <Counter/>
+        <MyList/>
         </div>          
     )
 }
