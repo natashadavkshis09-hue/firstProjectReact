@@ -1,9 +1,17 @@
 
 
-function Header(){
+function Header({ isVisible, setIsVisible }) {
+    return ( 
+        <header className="header">
+            <button 
+                className="auth-btn"
+                onClick={() => setIsVisible(!isVisible)}
+            >
+                {isVisible ? "выход" : "вход"}
+            </button>
 
-    return (
-        <header>Интернет магазин</header>
+            <span className="title">Интернет магазин</span>
+        </header>
     )
 }
 
