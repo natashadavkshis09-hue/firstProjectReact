@@ -1,35 +1,47 @@
-import { useState, useEffect } from "react"
-import ProductCard from "./Productcard"
+import { useState, useEffect } from "react";
+import ProductCard from "./Productcard";
+import ProductFilter from "../ui/ProductFilter";
 
 function ProductList() {
-
-  const [cards, setCards] = useState([])
-  const [search, setSearch] = useState("")
+  const [cards, setCards] = useState([]);
+  const [search, setSearch] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(Infinity);
 
   useEffect(() => {
     setTimeout(() => {
       const data = [
-        { id: "1", title: "ноутбук", price: "185$", opis: "Портативный компьютер для работы и учебы" },
-        { id: "2", title: "телефон", price: "300$", opis: "Смартфон для связи, интернета и приложений" },
-        { id: "3", title: "компьютер", price: "900$", opis: "Мощный настольный ПК для работы и игр" },
-        { id: "4", title: "наушники", price: "39$", opis: "Удобные наушники для музыки и звонков" },
-        { id: "5", title: "мышка", price: "20$", opis: "Компьютерная мышь для точного управления" },
-        { id: "6", title: "монитор", price: "200$", opis: "Экран высокого качества для компьютера" },
-        { id: "7", title: "виар шлем", price: "250$", opis: "Шлем виртуальной реальности для полного погружения в игры и интерактивные 3D-миры" }
-      ]
+        { id: "1", title: "ноутбук", price: 185, opis: "Портативный компьютер" },
+        { id: "2", title: "телефон", price: 300, opis: "Смартфон" },
+        { id: "3", title: "компьютер", price: 900, opis: "ПК" },
+        { id: "4", title: "наушники", price: 39, opis: "Музыка" },
+        { id: "5", title: "мышка", price: 20, opis: "Мышь" },
+        { id: "6", title: "монитор", price: 200, opis: "Экран" },
+        { id: "7", title: "виар шлем", price: 250, opis: "VR" }
+      ];
+      setCards(data);
+    }, 1000);
+  }, []);
 
-      setCards(data)
-    }, 3000)
-  }, [])
-    
- 
-  const filteredCards = cards.filter(card =>
-    card.title.toLowerCase().includes(search.toLowerCase())
-  )
+  // 🔥 ОДИН общий фильтр
+  const filteredCards = cards.filter((card) => {
+    return (
+      card.title.toLowerCase().includes(search.toLowerCase()) &&
+      card.price >= minPrice &&
+      card.price <= maxPrice
+    );
+  });
+
+  // фильтр по цене просто обновляет состояние
+  const handleFilter = (min, max) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+  };
 
   return (
     <div>
-      
+      <ProductFilter onFilter={handleFilter} />
+
       <input
         type="text"
         placeholder="Поиск..."
@@ -49,7 +61,7 @@ function ProductList() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default ProductList
+export default ProductList;

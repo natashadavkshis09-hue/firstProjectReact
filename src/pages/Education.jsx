@@ -7,6 +7,7 @@ import { useState } from "react"
 import OnChangeComp from "../components/ui/OnChangeComp"
 import { useEffect } from "react"
 
+
 function Education() {
     useEffect(()=>{console.log("Страница загрузилась")},[])
 
@@ -32,6 +33,7 @@ function Education() {
         <button onClick={()=>setIsVisitble(!isVisible)}>Изменить отображения</button>
 
         <OnChangeComp/>
+    
         </div>          
     )
 }
