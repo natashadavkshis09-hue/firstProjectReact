@@ -6,18 +6,19 @@ import FirstConditional from "../components/EduComponents/FirstConditional"
 import { useState } from "react"
 import OnChangeComp from "../components/ui/OnChangeComp"
 import { useEffect } from "react"
+import Users from "../components/Users"
 
 
 function Education() {
     useEffect(()=>{console.log("Страница загрузилась")},[])
-
+    
     
 
     const [number,setNumber] = useState(0)
     const [isVisible,setIsVisitble] = useState(true)
 
 
-
+     
     return(
         <div className="flex flex-col  gap-10">
         <h1>Обучаюшая страница</h1>
@@ -33,7 +34,7 @@ function Education() {
         <button onClick={()=>setIsVisitble(!isVisible)}>Изменить отображения</button>
 
         <OnChangeComp/>
-    
+        <Users/>
         </div>          
     )
 }

@@ -8,22 +8,19 @@ function ProductList() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const data = [
-        { id: "1", title: "ноутбук", price: 185, opis: "Портативный компьютер" },
-        { id: "2", title: "телефон", price: 300, opis: "Смартфон" },
-        { id: "3", title: "компьютер", price: 900, opis: "ПК" },
-        { id: "4", title: "наушники", price: 39, opis: "Музыка" },
-        { id: "5", title: "мышка", price: 20, opis: "Мышь" },
-        { id: "6", title: "монитор", price: 200, opis: "Экран" },
-        { id: "7", title: "виар шлем", price: 250, opis: "VR" }
-      ];
-      setCards(data);
-    }, 1000);
-  }, []);
+  
 
-  // 🔥 ОДИН общий фильтр
+  useEffect(()=>{
+        fetch("https://69eb79f897482ad5c527c20a.mockapi.io/priducts")
+        .then(res=>res.json())
+        .then((data)=>{
+            console.log(data)
+            setCards(data)
+            setCards(data)
+        })
+     },[])
+
+
   const filteredCards = cards.filter((card) => {
     return (
       card.title.toLowerCase().includes(search.toLowerCase()) &&
