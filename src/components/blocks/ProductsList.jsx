@@ -54,6 +54,7 @@ function ProductList() {
             title={card.title}
             price={card.price}
             opis={card.opis}
+            id={card.id}
           />
         ))}
       </div>

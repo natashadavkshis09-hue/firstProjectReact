@@ -1,4 +1,5 @@
 import ProductCount from "../ui/ProductCount"
+import {Link} from "react-router-dom"
 /*import { useState } from "react";
 
 function ProductCard({title,opis,price}) {
@@ -27,7 +28,7 @@ const [liked, setLiked] = useState(false);
 }*/
 import { useState } from "react";
 
-function ProductCard({ title, opis, price }) {
+function ProductCard({ id,title, opis, price,image }) {
     const [liked, setLiked] = useState(false);
 
     return (
@@ -45,11 +46,13 @@ function ProductCard({ title, opis, price }) {
             <div className="w-full h-40 bg-gray-200 rounded-xl flex items-center justify-center mb-4 text-gray-500">
                 📦
             </div>
+            <img src="{image}"/>
 
-            
+            <Link to={"/pages/"+id}>
             <h3 className="text-xl font-semibold mb-2">
                 заголовок: {title}
             </h3>
+            </Link>
 
             <p className="text-gray-600 mb-2">
                 Краткое описание: {opis}

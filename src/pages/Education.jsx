@@ -34,7 +34,7 @@ function Education() {
         <button onClick={()=>setIsVisitble(!isVisible)}>Изменить отображения</button>
 
         <OnChangeComp/>
-        <Users/>
+        {/* <Users/> */}
         </div>          
     )
 }
