@@ -7,6 +7,7 @@ import { useState } from "react"
 import OnChangeComp from "../components/ui/OnChangeComp"
 import { useEffect } from "react"
 import Users from "../components/Users"
+import TestForm from "../components/ui/TestForm"
 
 
 function Education() {
@@ -32,7 +33,7 @@ function Education() {
         
         <FirstConditional isVisible={isVisible} setIsVisible={setIsVisitble}/>
         <button onClick={()=>setIsVisitble(!isVisible)}>Изменить отображения</button>
-
+            <TestForm/>
         <OnChangeComp/>
         {/* <Users/> */}
         </div>          

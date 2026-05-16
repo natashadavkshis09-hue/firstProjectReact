@@ -29,7 +29,6 @@ function ProductList() {
     );
   });
 
-  // фильтр по цене просто обновляет состояние
   const handleFilter = (min, max) => {
     setMinPrice(min);
     setMaxPrice(max);
